@@ -1,0 +1,22 @@
+name = "your-game-name"
+prd = "./PRD.md"
+comparison = """
+Summarize where each agent succeeded, failed, or made different design choices.
+"""
+
+[game]
+genre = "arcade"
+engine = "Bevy"
+language = "Rust"
+platforms = ["macos", "linux", "windows"]
+controls = ["keyboard"]
+
+[review]
+primary_binary = "./binaries/game-claude"
+walkthrough = ""
+
+[implementations.claude]
+screenshots = ["./screenshots/claude-start.png", "./screenshots/claude-game.png"]
+binary = "./binaries/game-claude"
+comment = ""
+
