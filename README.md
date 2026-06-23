@@ -5,14 +5,31 @@
 ## Project Structure
 
 ```text
-src/          Game project source — where the game itself lives.
-screenshots/  Screenshots of the running game (referenced from task.toml).
-binaries/     Compressed binaries of the compiled game for reviewers to run.
-              Provide OSX builds — most researchers run Macs.
-PRD.md        Product Requirements Document — the detailed game spec / prompt.
-task.toml     Task metadata (tags, screenshots, video px links, binaries).
-README.md     This file.
+gamedev-template/
+├── src/                  Game project source — where the game itself lives.
+│                         Full engine project (Godot/raylib/etc): code,
+│                         scenes, assets, and build config. This is what the
+│                         agent edits and what compiles into the binaries.
+├── screenshots/          Screenshots of the running game.
+│   └── screen-01.png     Referenced from task.toml; capture key states
+│                         (gameplay, UI, win/loss) for quick review.
+├── binaries/             Compressed binaries of the compiled game for
+│   ├── game.app.zip      reviewers to run. Provide an OSX build — most
+│   └── game.exe.zip      researchers run Macs. Add Windows if available.
+├── PRD.md                Product Requirements Document — the detailed game
+│                         spec that also serves as the prompt for the agent.
+├── task.toml             Task metadata: tags, screenshot paths, video px
+│                         links, and binary paths. See task.toml.example.
+├── task.toml.example     Template for task.toml with example values.
+└── README.md             This file — overview, observations, links.
 ```
+
+Notes:
+
+- **`src/`** holds the complete, buildable game project, not just loose scripts.
+- **`binaries/`** must contain archived (zip) builds — at minimum an OSX build.
+- **Videos** are not stored in the repo; upload them to bunnylol px and link
+  them from `task.toml` (see the Videos section below).
 
 ## Core Features
 
