@@ -36,5 +36,5 @@ Example: https://www.internalfb.com/intern/px/p/bd8gT
 
 <!-- Optional. Agent run trajectories that produced this game. -->
 
-Upload trajectories to a paste tool (e.g. Pastry) and link them here. If a
+Upload trajectories to **bunnylol paste** and link them here. If a
 trajectory is short, inline it directly in this section instead.
