@@ -2,6 +2,18 @@
 
 <!-- One-paragraph description of the game and its core loop. -->
 
+## Project Structure
+
+```text
+src/          Game project source — where the game itself lives.
+screenshots/  Screenshots of the running game (referenced from task.toml).
+binaries/     Compressed binaries of the compiled game for reviewers to run.
+              Provide OSX builds — most researchers run Macs.
+PRD.md        Product Requirements Document — the detailed game spec / prompt.
+task.toml     Task metadata (tags, screenshots, video px links, binaries).
+README.md     This file.
+```
+
 ## Core Features
 
 <!-- Describe the standout features of this implementation. -->
