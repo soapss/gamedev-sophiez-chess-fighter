@@ -8,5 +8,6 @@ videos = ["https://www.internalfb.com/intern/px/p/bd8gT"]  # upload to bunnylol 
 teaser = "https://www.internalfb.com/intern/px/p/bd8gT"  # 7 sec highlight video, px link
 
 [binaries]
-osx = "./binaries/game.app"
-windows = "./binaries/game.exe"
+# Archive (zip) binaries before referencing them here
+osx = "./binaries/game.app.zip"
+windows = "./binaries/game.exe.zip"

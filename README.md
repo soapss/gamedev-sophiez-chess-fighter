@@ -15,6 +15,9 @@
      design trade-offs, or anything notable about how the game was built.
      Example table below — keep, edit, or remove as needed. -->
 
+> **Note:** The observations below are provided for illustration only — replace
+> them with notes specific to your own implementation.
+
 | Evaluation | Claude (Opus 4.8) | Avocado | Track opportunity |
 | --- | --- | --- | --- |
 | Self-validation (closed loop) | Runs build, screenshots, analyzes, self-corrects before finalizing | No validation; ships broken code (wrong APIs, missing files) | Validate-then-fix trajectories; reward verifying before "done" |
@@ -31,4 +34,7 @@ Example: https://www.internalfb.com/intern/px/p/bd8gT
 
 ## Trajectories
 
-<!-- Optional. Links to agent run trajectories that produced this game. -->
+<!-- Optional. Agent run trajectories that produced this game. -->
+
+Upload trajectories to a paste tool (e.g. Pastry) and link them here. If a
+trajectory is short, inline it directly in this section instead.
