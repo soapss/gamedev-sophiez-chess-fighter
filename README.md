@@ -1,14 +1,24 @@
-# Game Dev Template
+# Game Title
 
-Starter repo for the AAI Game Dev track.
+<!-- One-paragraph description of the game and its core loop. -->
 
-## Required Files
+## Core Features
 
-- `task.toml` - submission manifest
-- `PRD.md` - requirements for the game
-- `SETUP.md` - local build/run instructions
-- `screenshots/` - representative screenshots for each implementation
-- `binaries/` - runnable game binaries when they are small enough to commit
+<!-- Describe the standout features of this implementation. -->
+
+- Example: smooth, responsive shooting experience
+- Example: fast level transitions with no loading hitches
+
+## Observations
+
+<!-- Optional. Notes comparing implementations (e.g. Avocado vs Claude),
+     design trade-offs, or anything notable about how the game was built. -->
+
+## Trajectories
+
+<!-- Optional. Links to agent run trajectories that produced this game. -->
+
+---
 
 ## Naming
 
@@ -31,4 +41,3 @@ Import the repository from:
 ```text
 https://www.codimango.com/admin/aai/submissions
 ```
-

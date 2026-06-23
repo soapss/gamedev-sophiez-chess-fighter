@@ -1,20 +1,22 @@
 # Product Requirements Document
 
-<!-- Describe the game an agent should build. Keep scope small and playable. -->
+<!-- This document is the detailed game task description. It serves directly as
+     the prompt for Avocado to build the game. Write it as a complete spec, not
+     a fill-in-the-blank template. Keep scope small and playable. -->
 
 ## Overview
 
-<!-- What is the game? What is the core loop? -->
+<!-- What is the game? What is the core loop the agent must implement? -->
 
 ## Goals
 
 - Deliver a playable single-player game with a clear win, loss, or completion state.
 - Document controls and expected behavior.
-- Keep implementation readable for future agent edits.
+- Keep the implementation readable for future agent edits.
 
 ## Non-Goals
 
-<!-- List features intentionally excluded from scope. -->
+<!-- Features intentionally excluded from scope. -->
 
 ## Requirements
 
@@ -36,5 +38,4 @@
 
 ## Technical Constraints
 
-<!-- Language, engine, dependencies, supported platforms. -->
-
+<!-- Engine, language, dependencies, supported platforms. -->

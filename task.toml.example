@@ -1,22 +1,12 @@
-name = "your-game-name"
+name = "Game Title"
 prd = "./PRD.md"
-comparison = """
-Summarize where each agent succeeded, failed, or made different design choices.
-"""
 
 [game]
-genre = "arcade"
-engine = "Bevy"
-language = "Rust"
-platforms = ["macos", "linux", "windows"]
-controls = ["keyboard"]
+tags = ["godot", "fps", "cpp"]
+screenshots = ["./screenshots/screen-01.png"]
+videos = ["./videos/video-01.mp4"]
+teaser = "./videos/teaser.mp4"  # 7 sec highlight video
 
-[review]
-primary_binary = "./binaries/game-claude"
-walkthrough = ""
-
-[implementations.claude]
-screenshots = ["./screenshots/claude-start.png", "./screenshots/claude-game.png"]
-binary = "./binaries/game-claude"
-comment = ""
-
+[binaries]
+osx = "./binaries/game.app"
+windows = "./binaries/game.exe"
