@@ -4,8 +4,8 @@ prd = "./PRD.md"
 [game]
 tags = ["godot", "fps", "cpp"]
 screenshots = ["./screenshots/screen-01.png"]
-videos = ["./videos/video-01.mp4"]
-teaser = "./videos/teaser.mp4"  # 7 sec highlight video
+videos = ["https://www.internalfb.com/intern/px/p/bd8gT"]  # upload to bunnylol px, link here
+teaser = "https://www.internalfb.com/intern/px/p/bd8gT"  # 7 sec highlight video, px link
 
 [binaries]
 osx = "./binaries/game.app"
