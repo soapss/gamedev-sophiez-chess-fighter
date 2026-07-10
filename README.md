@@ -16,7 +16,7 @@ gamedev-template/
 ├── binaries/             Compressed binaries of the compiled game for
 │   ├── game.app.zip      reviewers to run. Provide an OSX build — most
 │   └── game.exe.zip      researchers run Macs. Add Windows if available.
-├── PRD.md                Product Requirements Document — the detailed game
+├── instructions.md       Product Requirements Document — the detailed game
 │                         spec that also serves as the prompt for the agent.
 ├── task.toml             Task metadata: tags, screenshot paths, video px
 │                         links, and binary paths. See task.toml.example.
