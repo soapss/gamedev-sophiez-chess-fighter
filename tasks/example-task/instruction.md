@@ -1,8 +1,11 @@
-# Product Requirements Document
+# Instruction — TidEscape
 
-<!-- This document is the detailed game task description. It serves directly as
-     the prompt for Avocado to build the game. Write it as a complete spec, not
-     a fill-in-the-blank template. Keep scope small and playable. -->
+<!-- This is the detailed game task description. It serves directly as the prompt
+     for Avocado to build the game (or the golden feature for this task). Write it
+     as a complete spec, not a fill-in-the-blank template — provide enough info to
+     reproduce the gold solution without spelling the solution out. Keep scope
+     small and playable. Do NOT write this file with 3P models, and do not rely
+     heavily on 1P models (grammar / technical help only). -->
 
 ## Overview
 

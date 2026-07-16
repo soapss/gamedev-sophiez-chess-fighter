@@ -1,73 +1,67 @@
 # Game Title
 
-<!-- One-paragraph description of the game and its core loop. -->
+<!-- One-paragraph description of the game as a whole and its core loop. This is
+     the game-level README — it describes the complete game that lives in src/.
+     Each task under tasks/ has its own README describing that task specifically. -->
+
+This repo follows the ADO **GameDev track** task structure: one repo per game
+(`gamedev-{game-name}`), a single shared gold source in `src/`, and one folder
+per task under `tasks/`.
 
 ## Project Structure
 
 ```text
-gamedev-template/
-├── src/                  Game project source — where the game itself lives.
-│                         Full engine project (Godot/raylib/etc): code,
-│                         scenes, assets, and build config. This is what the
-│                         agent edits and what compiles into the binaries.
-├── screenshots/          Screenshots of the running game.
-│   └── screen-01.png     Referenced from task.toml; capture key states
-│                         (gameplay, UI, win/loss) for quick review.
-├── binaries/             Compressed binaries of the compiled game for
-│   ├── game.app.zip      reviewers to run. Provide an OSX build — most
-│   └── game.exe.zip      researchers run Macs. Add Windows if available.
-├── instruction.md        Product Requirements Document — the detailed game
-│                         spec that also serves as the prompt for the agent.
-├── task.toml             Task metadata: tags, screenshot paths, video px
-│                         links, and binary paths. See task.toml.example.
-├── task.toml.example     Template for task.toml with example values.
-└── README.md             This file — overview, observations, links.
+gamedev-{game-name}/
+├── src/                  Gold game source — the single, shared, buildable game
+│                         project (code, scenes, assets, build config). One
+│                         source of truth for the whole game; tasks do NOT copy
+│                         it. Built with 1P (Avocado) or by hand — never 3P.
+├── tasks/                One folder per task (a "todo item" — a larger, complex
+│   └── <task-name>/      chunk of work toward the game). Name it descriptively;
+│       │                 do not prefix with a date (record the completion date
+│       │                 in task.toml / the task README instead).
+│       ├── instruction.md    Detailed game task description — the prompt used to
+│       │                     reproduce this task's golden feature. No 3P models.
+│       ├── task.toml         Task metadata (see the example task's task.toml).
+│       ├── screenshots/      Screenshots of the running game for this task.
+│       │   └── screen-01.png Referenced from task.toml; capture key states.
+│       └── README.md         Task description, Avocado vs Claude comparison,
+│                             and trajectory links.
+├── CONTRIBUTING.md       Track rules: workflow, 3P/1P policy, constraints.
+└── README.md             This file — the game-level overview.
 ```
 
 Notes:
 
-- **`src/`** holds the complete, buildable game project, not just loose scripts.
-- **`binaries/`** must contain archived (zip) builds — at minimum an OSX build.
-- **Videos** are not stored in the repo; upload them to bunnylol px and link
-  them from `task.toml` (see the Videos section below).
+- **`src/`** holds the complete, buildable gold game — not loose scripts, and not
+  copied into each task. Tasks reference it and build on top of it.
+- **No binaries in the repo.** Per the latest track guidance, only the oracle
+  (gold) solution is submitted; there is no reliable way to run peers' binaries,
+  so builds are not committed. Share behavior via screenshots and videos instead.
+- **Videos** are not stored in the repo; upload them to **PixelCloud** and
+  reference the links from each task's `task.toml` and README.
 
 ## Core Features
 
-<!-- Describe the standout features of this implementation. -->
+<!-- Describe the standout features of the game as a whole. -->
 
-- Example: smooth, responsive shooting experience
+- Example: smooth, responsive controls
 - Example: fast level transitions with no loading hitches
 
-## Golden Version
-- Built with muse-spark-1.1-aai2
+## Gold Version
 
+- Built with <!-- e.g. muse-spark-1.1-aai2 (Avocado) --> — see each task's
+  `task.toml` for the exact `avocado-model` and `harness` used.
 
-## Observations
+## Tasks
 
-<!-- Optional. Notes comparing implementations (e.g. Avocado vs Claude),
-     design trade-offs, or anything notable about how the game was built.
-     Example table below — keep, edit, or remove as needed. -->
+<!-- Index the tasks in this repo. -->
 
-> **Note:** The observations below are provided for illustration only — replace
-> them with notes specific to your own implementation.
+| Task | Description | Completed |
+| --- | --- | --- |
+| [example-task](./tasks/example-task/) | Full TidEscape one-shot build | <!-- YYYY-MM-DD --> |
 
-| Evaluation | Claude (Opus 4.8) | Avocado | Track opportunity |
-| --- | --- | --- | --- |
-| Self-validation (closed loop) | Runs build, screenshots, analyzes, self-corrects before finalizing | No validation; ships broken code (wrong APIs, missing files) | Validate-then-fix trajectories; reward verifying before "done" |
-| Visual / image understanding | Parses rendered output and assets (e.g. 9-slice UI) | Cannot analyze images at all | Multimodal read-and-verify tasks against PRD/reference |
-| Speed | Slower | 5-7x faster (minutes on raylib) | Preserve the speed while closing correctness gaps |
+## Contributing
 
-## Videos
-
-Do not commit video files to the repository. Upload gameplay and teaser
-videos to **bunnylol px** and reference the resulting `px` links in
-`task.toml.example` (the `videos` and `teaser` fields).
-
-Example: https://www.internalfb.com/intern/px/p/bd8gT
-
-## Trajectories
-
-<!-- Optional. Agent run trajectories that produced this game. -->
-
-Upload trajectories to **bunnylol paste** and link them here. If a
-trajectory is short, inline it directly in this section instead.
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for the task-making workflow, the 3P/1P
+model policy, and track constraints (engine licensing, Mac target, latest model).
