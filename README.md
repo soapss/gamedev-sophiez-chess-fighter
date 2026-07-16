@@ -27,7 +27,6 @@ gamedev-{game-name}/
 │       │   └── screen-01.png Referenced from task.toml; capture key states.
 │       └── README.md         Task description, Avocado vs Claude comparison,
 │                             and trajectory links.
-├── CONTRIBUTING.md       Track rules: workflow, 3P/1P policy, constraints.
 └── README.md             This file — the game-level overview.
 ```
 
@@ -60,8 +59,3 @@ Notes:
 | Task | Description | Completed |
 | --- | --- | --- |
 | [example-task](./tasks/example-task/) | Full TidEscape one-shot build | <!-- YYYY-MM-DD --> |
-
-## Contributing
-
-See [CONTRIBUTING.md](./CONTRIBUTING.md) for the task-making workflow, the 3P/1P
-model policy, and track constraints (engine licensing, Mac target, latest model).
