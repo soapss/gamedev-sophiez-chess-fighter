@@ -1,8 +1,8 @@
-name = "Game Title"
-prd = "./PRD.md"
+name = "TidEscape"
+prd = "./instruction.md"
 
 [game]
-tags = ["godot", "fps", "cpp"]
+tags = ["raylib", "2D", "c"]
 screenshots = ["./screenshots/screen-01.png"]
 videos = ["https://www.internalfb.com/intern/px/p/bd8gT"]  # upload to bunnylol px, link here
 teaser = "https://www.internalfb.com/intern/px/p/bd8gT"  # 7 sec highlight video, px link
@@ -10,4 +10,3 @@ teaser = "https://www.internalfb.com/intern/px/p/bd8gT"  # 7 sec highlight video
 [binaries]
 # Archive (zip) binaries before referencing them here
 osx = "./binaries/game.app.zip"
-windows = "./binaries/game.exe.zip"

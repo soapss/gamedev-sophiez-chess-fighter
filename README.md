@@ -38,6 +38,10 @@ Notes:
 - Example: smooth, responsive shooting experience
 - Example: fast level transitions with no loading hitches
 
+## Golden Version
+- Built with muse-spark-1.1-aai2
+
+
 ## Observations
 
 <!-- Optional. Notes comparing implementations (e.g. Avocado vs Claude),
