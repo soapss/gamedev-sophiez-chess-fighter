@@ -62,7 +62,8 @@ and reference the links here and in [task.toml](./task.toml) (`videos`, `teaser`
 ## Trajectories
 
 <!-- Add the paste link to the trajectory used when building this task's golden
-     feature (Avocado / manual — never 3P). Inline it here if it's short. -->
+     feature (Avocado / manual — never 3P). Skip if you built it entirely by hand.
+     Inline it here if it's short. -->
 
 - Gold build trajectory: <!-- bunnylol paste link -->
 

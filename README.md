@@ -34,18 +34,30 @@ Notes:
 
 - **`src/`** holds the complete, buildable gold game — not loose scripts, and not
   copied into each task. Tasks reference it and build on top of it.
-- **No binaries in the repo.** Per the latest track guidance, only the oracle
-  (gold) solution is submitted; there is no reliable way to run peers' binaries,
-  so builds are not committed. Share behavior via screenshots and videos instead.
 - **Videos** are not stored in the repo; upload them to **PixelCloud** and
   reference the links from each task's `task.toml` and README.
 
-## Platform
+## Game types
 
-<!-- Platform(s) the gold game targets. Build/run prerequisites live under
-     Building & Running. -->
+The template is generic. Use it for either kind of GameDev task:
 
-- **Platform(s):** <!-- e.g. macOS (Apple Silicon), Web -->
+- **One-shot game** — a small, complex game buildable from a single PRD. Add it
+  as a single task under `tasks/`; no need to break it into multiple steps.
+- **Large game** — an ongoing game built as many todo-items. Each task under
+  `tasks/` is a larger, complex chunk of work. Not every todo-item is
+  task-worthy: if a model flies through it, just commit the code and move on; if
+  it's purely non-visual source code, submit it as a t-bench / swe-bench task
+  instead.
+
+## Constraints
+
+- **Engines** — only libraries/engines without commercial licences (Unity and
+  Unreal are unsupported).
+- **Model** — always use the latest model.
+- **1P / 3P models** — the gold solution and any in-game assets must not come
+  from 3P models. `README.md` and `task.toml` may use 3P; `instruction.md` must
+  not use 3P and must not lean heavily on 1P (grammar / technical help only).
+  Never use any model to brainstorm the game or task idea.
 
 ## Engine & Framework
 

@@ -3,12 +3,12 @@ instruction = "./instruction.md"
 
 [game]
 # Controlled vocabularies — see the "Tag reference" tables in this task's README.md.
-game-tags = ["Arcade/action"]            # one or more from the game-tags list
-tech-stack-tags = ["Unspecified/other"]  # raylib/C — no dedicated tag; see the list
-assets-used = ["Primitives"]             # Primitives | ImportedAssets
+tags = ["action"]            # one or more from the game-tags list
+tech-stack-tags = ["raylib", "cpp"]  # raylib/C — no dedicated tag; see the list
+assets-used = ["primitives"]             # Primitives | ImportedAssets
 avocado-model = "Muse Spark 1.1"         # exact Avocado model used for the gold build
 harness = "Metacode"                     # harness used to build the gold solution
 screenshots = ["./screenshots/screen-01.png"]
-videos = ["./videos/video-01.mp4"]       # upload to PixelCloud, reference the links
-teaser = "./videos/teaser.mp4"           # ~10 sec highlight video (PixelCloud)
-starting-commit-hash = "<hash>"          # repo commit before this task's work began
+videos = ["https://pxl.cl/bhKRT"]       # upload to PixelCloud, reference the links
+teaser = "https://pxl.cl/bhKRT"           # ~10 sec highlight video (PixelCloud)
+commit-hash = "<hash>"                   # the single commit containing this task's work

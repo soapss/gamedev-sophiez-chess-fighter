@@ -1,11 +1,14 @@
 # Instruction — TidEscape
 
 <!-- This is the detailed game task description. It serves directly as the prompt
-     for Avocado to build the game (or the golden feature for this task). Write it
-     as a complete spec, not a fill-in-the-blank template — provide enough info to
-     reproduce the gold solution without spelling the solution out. Keep scope
-     small and playable. Do NOT write this file with 3P models, and do not rely
-     heavily on 1P models (grammar / technical help only). -->
+     for Avocado (and Claude) to attempt this task's golden feature. Write it as a
+     complete spec, not a fill-in-the-blank template. Provide enough info to remove
+     ambiguity — but do NOT close reasoning gaps: neither model is required to
+     one-shot it, and a task where models show genuine reasoning gaps is a good
+     task. When tuning later, only clarify ambiguity; don't add hints that hand
+     over the solution. Keep scope small and playable. Do NOT write this file with
+     3P models, do not rely heavily on 1P models (grammar / technical help only),
+     and never use any model to brainstorm the task idea. -->
 
 ## Overview
 
@@ -122,4 +125,3 @@ The main items that need 2D assets are:
 
 Engine: Raylib
 Language: C
-Platform: Mac
