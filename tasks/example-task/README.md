@@ -32,6 +32,18 @@ for the full spec used to build it.
 | Visual / image understanding | Parses rendered output and assets (e.g. 9-slice UI) | Cannot analyze images at all | Multimodal read-and-verify tasks against the instruction/reference |
 | Speed | Slower | 5-7x faster (minutes on raylib) | Preserve the speed while closing correctness gaps |
 
+## Human-Tuned Areas
+
+<!-- The nuanced, taste-making pieces you hand-tuned that a model would not nail by
+     default. Call these out so reviewers can judge the human craft. Examples:
+     input timings / jump buffer, animation speeds, color palette, difficulty ramp,
+     enemy pacing, audio/music timing and mix, camera feel. Remove any that do not
+     apply and add your own. -->
+
+- <!-- e.g. tide rise-rate curve tuned so escape feels tense but fair -->
+- <!-- e.g. crab movement acceleration + input buffer tuned for responsiveness -->
+- <!-- e.g. palette and shell-growth animation timing hand-adjusted for readability -->
+
 ## Screenshots
 
 <!-- Capture key states (gameplay, UI, win/loss). Referenced from task.toml. -->

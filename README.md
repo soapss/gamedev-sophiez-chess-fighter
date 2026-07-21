@@ -40,6 +40,66 @@ Notes:
 - **Videos** are not stored in the repo; upload them to **PixelCloud** and
   reference the links from each task's `task.toml` and README.
 
+## Platform
+
+<!-- Platform(s) the gold game targets. Build/run prerequisites live under
+     Building & Running. -->
+
+- **Platform(s):** <!-- e.g. macOS (Apple Silicon), Web -->
+
+## Engine & Framework
+
+<!-- The engine/framework the game is built on, its version, and its license.
+     The license must permit commercial/internal use (no commercial-use restriction). -->
+
+- **Engine / framework:** <!-- e.g. raylib 5.0 (C) -->
+- **License:** <!-- e.g. Zlib -->
+
+## Dependencies
+
+<!-- Every third-party library/package used in src/, pinned to an exact version,
+     with its source and license. All must permit commercial/internal use.
+     Write "None." if nothing is used beyond the engine. Delete the example row. -->
+
+| Library | Version | Source | License |
+| --- | --- | --- | --- |
+| <!-- flame --> | <!-- 1.18.0 --> | <!-- https://pub.dev/packages/flame --> | <!-- MIT --> |
+
+## Assets & Attribution
+
+<!-- Every asset shipped in src/ (art, sprites, audio/music, fonts, models). Give
+     source + license + attribution for ALL third-party AND Meta-internal assets.
+     Group by folder when a whole directory shares one source/license (e.g. all
+     sprites in src/assets/char_sprites/ are X license from Y source); list
+     individual files only where they differ. If an asset is original or generated,
+     say so and by what. If the game uses only primitives, write: "All assets are
+     original primitives. No third-party or Meta-internal assets." Delete the
+     example rows. -->
+
+| Asset / Folder | Type | Source | License / Attribution |
+| --- | --- | --- | --- |
+| <!-- src/assets/char_sprites/ --> | <!-- sprites --> | <!-- kenney.nl --> | <!-- CC0 --> |
+| <!-- src/assets/music/theme.ogg --> | <!-- music --> | <!-- original (generated) --> | <!-- internal-use --> |
+
+No third-party tokens, proprietary code, or IP appear in the code, assets, or the
+model-visible environment; all third-party material is attributed above.
+
+## Building & Running
+
+<!-- Prerequisites (compiler/SDK/browser + versions) and exact steps to build src/
+     from source and run it, per platform. Must be sufficient for a clean build in
+     a fresh environment (dependency versions are pinned above). -->
+
+**Prerequisites:** <!-- e.g. clang + CMake 3.28; Emscripten for web; a modern browser -->
+
+```text
+<!-- e.g.
+cd src
+<build command>
+<run command>
+-->
+```
+
 ## Core Features
 
 <!-- Describe the standout features of the game as a whole. -->
@@ -49,8 +109,11 @@ Notes:
 
 ## Gold Version
 
-- Built with <!-- e.g. muse-spark-1.1-aai2 (Avocado) --> — see each task's
-  `task.toml` for the exact `avocado-model` and `harness` used.
+<!-- Model + harness are per-task and live in each task's task.toml (avocado-model,
+     harness), the single source of truth. Do not restate the model here. -->
+
+- See each task's `task.toml` for the exact `avocado-model` (use the exact, latest
+  model) and `harness` used.
 
 ## Tasks
 
