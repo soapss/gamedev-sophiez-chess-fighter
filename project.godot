@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 name="Chess Fighter - Bot Battle"
-run/main_scene="res://src/scenes/Main.tscn"
+run/main_scene="res://src/scenes/Start.tscn"
 config/features=PackedStringArray("4.7")
 config/icon="res://src/assets/icon.svg"
 
