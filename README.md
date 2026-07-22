@@ -1,136 +1,107 @@
-# Game Title
+# Chess Fighter - Bot Battle: Chess + Street Fighter Capture Duels
 
-<!-- One-paragraph description of the game as a whole and its core loop. This is
-     the game-level README — it describes the complete game that lives in src/.
-     Each task under tasks/ has its own README describing that task specifically. -->
+One-paragraph description: Small, polished, complex one-shot for ADO GameDev Track. Chess where every capture requires winning a street-fighter-style duel. Foundation phase: chess board only (8x8, legal move gen, check/mate detection). This will grow into full chess+fighter with bot minimax depth 3 and per-piece specials. Bot-first to keep scope task-worthy for one-shot — captures push Avocado beyond simple chess. Human-designed per track hard rule (no models for ideation).
 
-This repo follows the ADO **GameDev track** task structure: one repo per game
-(`gamedev-{game-name}`), a single shared gold source in `src/`, and one folder
-per task under `tasks/`.
+This repo follows the ADO **GameDev track** task structure: one repo per game (`gamedev-{game-name}`), a single shared gold source in `src/` + `project.godot`, and one folder per task under `tasks/`.
 
 ## Project Structure
 
 ```text
-gamedev-{game-name}/
-├── src/                  Gold game source — the single, shared, buildable game
-│                         project (code, scenes, assets, build config). One
-│                         source of truth for the whole game; tasks do NOT copy
-│                         it. Built with 1P (Avocado) or by hand — never 3P.
-├── tasks/                One folder per task (a "todo item" — a larger, complex
-│   └── <task-name>/      chunk of work toward the game). Name it descriptively;
-│       │                 do not prefix with a date (record the completion date
-│       │                 in task.toml / the task README instead).
-│       ├── instruction.md    Detailed game task description — the prompt used to
-│       │                     reproduce this task's golden feature. No 3P models.
-│       ├── task.toml         Task metadata (see the example task's task.toml).
-│       ├── screenshots/      Screenshots of the running game for this task.
-│       │   └── screen-01.png Referenced from task.toml; capture key states.
-│       └── README.md         Task description, Avocado vs Claude comparison,
-│                             and trajectory links.
-└── README.md             This file — the game-level overview.
+gamedev-sophiez-chess-fighter/
+├── project.godot         Godot 4.7 project config (root for res://)
+├── src/                  Gold game source — buildable game (single source of truth)
+│   ├── main.gd           Main Control, chess board UI, selection, legal highlights
+│   ├── chess/            board.gd, piece.gd, move.gd (full chess logic)
+│   ├── assets/           icon.svg placeholder
+│   └── scenes/Main.tscn  Main scene (StatusLabel + BoardContainer)
+├── tasks/                Future one-shot task(s) will live here
+└── README.md             This file — game-level overview
 ```
 
-Notes:
+Notes: `src/` + `project.godot` holds the complete buildable gold game; tasks do NOT copy it. Videos go to PixelCloud, not repo.
 
-- **`src/`** holds the complete, buildable gold game — not loose scripts, and not
-  copied into each task. Tasks reference it and build on top of it.
-- **Videos** are not stored in the repo; upload them to **PixelCloud** and
-  reference the links from each task's `task.toml` and README.
+## Game Loop (current foundation)
+1. Chess board 8x8, White vs Black turn alternation
+2. Click piece to select, see legal moves highlighted (green empty, red capture)
+3. Legal move filtering includes king safety, en passant, castling with check squares
+4. Check/checkmate/stalemate detection ends game
 
-## Game types
-
-The template is generic. Use it for either kind of GameDev task:
-
-- **One-shot game** — a small, complex game buildable from a single PRD. Add it
-  as a single task under `tasks/`; no need to break it into multiple steps.
-- **Large game** — an ongoing game built as many todo-items. Each task under
-  `tasks/` is a larger, complex chunk of work. Not every todo-item is
-  task-worthy: if a model flies through it, just commit the code and move on; if
-  it's purely non-visual source code, submit it as a t-bench / swe-bench task
-  instead.
-
-## Constraints
-
-- **Engines** — only libraries/engines without commercial licences (Unity and
-  Unreal are unsupported).
-- **Model** — always use the latest model.
-- **1P / 3P models** — the gold solution and any in-game assets must not come
-  from 3P models. `README.md` and `task.toml` may use 3P; `instruction.md` must
-  be written manually without usage of any models (1P/3P).
-  Never use any model to brainstorm the game or task idea.
+Future one-shot loop:
+5. Attempt capture → triggers fighter arena overlay
+6. Fighter: attacker vs defender with per-piece HP & special (Pawn Rush, Knight Leap, etc)
+7. Controls: A/D move, J/K/U/I attacks, Shift block, Space special
+8. Attacker must win fighter to capture succeed
 
 ## Engine & Framework
 
-<!-- The engine/framework the game is built on, its version, and its license.
-     The license must permit commercial/internal use (no commercial-use restriction). -->
-
-- **Engine / framework:** <!-- e.g. raylib 5.0 (C) -->
-- **License:** <!-- e.g. Zlib -->
+- **Engine / framework:** Godot 4.7 (GDScript)
+- **License:** MIT (https://github.com/godotengine/godot/blob/master/LICENSE.txt) — open-source, permits commercial/internal use, compliant with track (no Unity/Unreal)
 
 ## Dependencies
 
-<!-- Every third-party library/package used in src/, pinned to an exact version,
-     with its source and license. All must permit commercial/internal use.
-     Write "None." if nothing is used beyond the engine. Delete the example row. -->
-
 | Library | Version | Source | License |
 | --- | --- | --- | --- |
-| <!-- flame --> | <!-- 1.18.0 --> | <!-- https://pub.dev/packages/flame --> | <!-- MIT --> |
+| Godot Engine | 4.7.x | https://godotengine.org/download/archive/4.7 | MIT |
+| None beyond engine | - | - | - |
+
+All pinned: Godot 4.7 per project.godot `config_version=5` and `config/features=4.7`. No third-party libs.
 
 ## Assets & Attribution
 
-<!-- Every asset shipped in src/ (art, sprites, audio/music, fonts, models). Give
-     source + license + attribution for ALL third-party AND Meta-internal assets.
-     Group by folder when a whole directory shares one source/license (e.g. all
-     sprites in src/assets/char_sprites/ are X license from Y source); list
-     individual files only where they differ. If an asset is original or generated,
-     say so and by what. If the game uses only primitives, write: "All assets are
-     original primitives. No third-party or Meta-internal assets." Delete the
-     example rows. -->
-
 | Asset / Folder | Type | Source | License / Attribution |
 | --- | --- | --- | --- |
-| <!-- src/assets/char_sprites/ --> | <!-- sprites --> | <!-- kenney.nl --> | <!-- CC0 --> |
-| <!-- src/assets/music/theme.ogg --> | <!-- music --> | <!-- original (generated) --> | <!-- internal-use --> |
+| `src/assets/icon.svg` | icon | original (placeholder triangle primitive) | internal-use, original |
+| `src/` chess visuals | primitives | original — ColorRect tiles, Label Unicode chess symbols ♔♕♖♗♘♙ | original |
+| Fighter UI (future) | primitives | original — ProgressBar HP, Label, ColorRect | original |
+| No external art/audio | - | All assets are original primitives | No third-party assets — complies with [Asset Guidelines](https://fb.workplace.com/groups/1939643316691589/permalink/1966187604037160/) |
 
-No third-party tokens, proprietary code, or IP appear in the code, assets, or the
-model-visible environment; all third-party material is attributed above.
+No third-party tokens, proprietary code, or IP appear in the code, assets, or model-visible environment; all third-party material attributed above. No 3P-generated assets (per Manuela FAQ — no ai_asset_gen etc). Built with latest 1P model (Muse Spark 1.1 / Avocado) or by hand — never 3P.
 
 ## Building & Running
 
-<!-- Prerequisites (compiler/SDK/browser + versions) and exact steps to build src/
-     from source and run it, per platform. Must be sufficient for a clean build in
-     a fresh environment (dependency versions are pinned above). -->
-
-**Prerequisites:** <!-- e.g. clang + CMake 3.28; Emscripten for web; a modern browser -->
+**Prerequisites:** Godot 4.7.x (https://godotengine.org/download/archive), modern desktop OS (Mac/Win/Linux). For Mac dev, optional Santa exemption per onboarding: https://www.internalfb.com/wiki/AppVote/Requesting_Opt-out/
 
 ```text
-<!-- e.g.
-cd src
-<build command>
-<run command>
--->
+# Clone (HTTPS)
+git clone https://github.com/soapss/gamedev-sophiez-chess-fighter.git
+cd gamedev-sophiez-chess-fighter
+
+# Open in Godot
+Open project.godot in Godot 4.7 editor: Project Manager -> Import -> select project.godot
+
+# Run
+Press F5 or Run Main scene: res://src/scenes/Main.tscn
+
+# CLI headless validation
+godot --path . src/scenes/Main.tscn
 ```
 
-## Core Features
+Mac build required per track, but Godot 4.7 cross-platform export via export presets (not committed per Ivan "no binaries").
 
-<!-- Describe the standout features of the game as a whole. -->
+## Core Features (Foundation Phase)
 
-- Example: smooth, responsive controls
-- Example: fast level transitions with no loading hitches
+- smooth, responsive chess click-to-move with legal move highlights
+- full pseudo-legal + legal filtering: pawn 1/2, captures, en passant target tracking, knight L, bishop/rook/queen sliding with path clear, king 1 + castling kingside/queenside with intermediate check validation
+- state: check, checkmate +- material, stalemate detection
+- original primitives only, no external deps — easy clean build
+
+Future one-shot:
+- bot-first minimax depth 3 alpha-beta, capture-first sorting, material+positional eval
+- fighter integration with per-piece specials and cooldowns, 45s round timeout, FIGHTER_PENDING state
 
 ## Gold Version
 
-<!-- Model + harness are per-task and live in each task's task.toml (avocado-model,
-     harness), the single source of truth. Do not restate the model here. -->
-
-- See each task's `task.toml` for the exact `avocado-model` (use the exact, latest
-  model) and `harness` used.
+- See each task's `task.toml` for exact `avocado-model` (use latest) and `harness`.
+- Current foundation: built manually + Avocado Muse Spark 1.1 — no 3P tokens in src/* per rule. Engine updated to 4.7 per local requirement.
 
 ## Tasks
 
-<!-- Index the tasks in this repo. -->
-
 | Task | Description | Completed |
 | --- | --- | --- |
-| [example-task](./tasks/example-task/) | Full TidEscape one-shot build | <!-- YYYY-MM-DD --> |
+| capture-fight (WIP) | Full one-shot: chess bot + fighter duels on capture, per-piece specials | Foundation done — board only, 2026-07-22 |
+
+## References
+- Template: [gamedev-template](https://github.com/codimango/gamedev-template)
+- Track doc: ADO GameDev Track (Godot 4.4+ -> 4.7)
+- Asset Guidelines: https://fb.workplace.com/groups/1939643316691589/permalink/1966187604037160/
+- How I Work Through a Task: https://fb.workplace.com/groups/1939643316691589/permalink/1967780980544489/
