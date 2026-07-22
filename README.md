@@ -56,7 +56,7 @@ The template is generic. Use it for either kind of GameDev task:
 - **Model** — always use the latest model.
 - **1P / 3P models** — the gold solution and any in-game assets must not come
   from 3P models. `README.md` and `task.toml` may use 3P; `instruction.md` must
-  not use 3P and must not lean heavily on 1P (grammar / technical help only).
+  be written manually without usage of any models (1P/3P).
   Never use any model to brainstorm the game or task idea.
 
 ## Engine & Framework
