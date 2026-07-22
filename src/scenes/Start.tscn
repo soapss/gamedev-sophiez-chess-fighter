@@ -65,15 +65,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 36
 text = "PLAY"
-
-[node name="LowerThirdSpacer" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 0.0
-anchor_top = 0.666
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+focus_mode = 2
 
 [connection signal="pressed" from="CenterContainer/VBox/PlayButton" to="." method="_on_play_pressed"]
