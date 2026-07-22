@@ -12,7 +12,7 @@ var board_offset: Vector2i = Vector2i(50,50)
 var board_buttons: Array = [] # [y][x] buttons
 var piece_labels: Array = [] # [y][x] labels
 
-var current_turn: ChessPiece.Color = ChessPiece.Color.WHITE
+var current_turn: ChessPiece.PieceColor = ChessPiece.PieceColor.WHITE
 
 @onready var status_label: Label = $StatusLabel
 @onready var board_container: Control = $BoardContainer
@@ -71,8 +71,8 @@ func _refresh_board_visuals():
 				lbl.text = ""
 			else:
 				lbl.text = piece.get_unicode_char()
-				lbl.add_theme_color_override("font_color", Color.WHITE if piece.color==ChessPiece.Color.WHITE else Color.BLACK)
-				if piece.color == ChessPiece.Color.WHITE:
+				lbl.add_theme_color_override("font_color", Color.WHITE if piece.color==ChessPiece.PieceColor.WHITE else Color.BLACK)
+				if piece.color == ChessPiece.PieceColor.WHITE:
 					lbl.add_theme_color_override("font_outline_color", Color.BLACK)
 					lbl.add_theme_constant_override("outline_size", 3)
 				else:
@@ -131,7 +131,7 @@ func _on_tile_pressed(pos: Vector2i):
 			selected_pos = Vector2i(-1,-1)
 			legal_moves_for_selected = []
 			# Switch turn
-			current_turn = ChessPiece.Color.BLACK if current_turn==ChessPiece.Color.WHITE else ChessPiece.Color.WHITE
+			current_turn = ChessPiece.PieceColor.BLACK if current_turn==ChessPiece.PieceColor.WHITE else ChessPiece.PieceColor.WHITE
 			_refresh_board_visuals()
 			_update_status()
 		else:
@@ -142,13 +142,13 @@ func _on_tile_pressed(pos: Vector2i):
 func _update_status():
 	if board == null:
 		return
-	var t = "White" if current_turn==ChessPiece.Color.WHITE else "Black"
+	var t = "White" if current_turn==ChessPiece.PieceColor.WHITE else "Black"
 	var check = board.is_check(current_turn)
 	var mate = board.is_checkmate(current_turn)
 	var stale = board.is_stalemate(current_turn)
 	var msg = "%s to move | " % t
 	if mate:
-		msg += "CHECKMATE! %s wins!" % ("Black" if current_turn==ChessPiece.Color.WHITE else "White")
+		msg += "CHECKMATE! %s wins!" % ("Black" if current_turn==ChessPiece.PieceColor.WHITE else "White")
 	elif stale:
 		msg += "STALEMATE - Draw!"
 	elif check:

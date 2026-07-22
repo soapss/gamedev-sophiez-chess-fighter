@@ -1,13 +1,13 @@
 class_name ChessPiece
 
 enum Type { PAWN, KNIGHT, BISHOP, ROOK, QUEEN, KING }
-enum Color { WHITE, BLACK }
+enum PieceColor { WHITE, BLACK }
 
 var type: Type
-var color: Color
+var color: PieceColor
 var has_moved: bool = false
 
-func _init(p_type: Type = Type.PAWN, p_color: Color = Color.WHITE):
+func _init(p_type: Type = Type.PAWN, p_color: PieceColor = PieceColor.WHITE):
 	type = p_type
 	color = p_color
 
@@ -22,7 +22,7 @@ func get_symbol() -> String:
 	return "?"
 
 func get_unicode_char() -> String:
-	if color == Color.WHITE:
+	if color == PieceColor.WHITE:
 		match type:
 			Type.KING: return "♔"
 			Type.QUEEN: return "♕"

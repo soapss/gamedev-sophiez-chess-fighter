@@ -23,29 +23,29 @@ func setup_initial():
 	_init_empty()
 	# Pawns
 	for x in range(8):
-		grid[1][x] = ChessPiece.new(ChessPiece.Type.PAWN, ChessPiece.Color.BLACK)
-		grid[6][x] = ChessPiece.new(ChessPiece.Type.PAWN, ChessPiece.Color.WHITE)
+		grid[1][x] = ChessPiece.new(ChessPiece.Type.PAWN, ChessPiece.PieceColor.BLACK)
+		grid[6][x] = ChessPiece.new(ChessPiece.Type.PAWN, ChessPiece.PieceColor.WHITE)
 	# Rooks
-	grid[0][0] = ChessPiece.new(ChessPiece.Type.ROOK, ChessPiece.Color.BLACK)
-	grid[0][7] = ChessPiece.new(ChessPiece.Type.ROOK, ChessPiece.Color.BLACK)
-	grid[7][0] = ChessPiece.new(ChessPiece.Type.ROOK, ChessPiece.Color.WHITE)
-	grid[7][7] = ChessPiece.new(ChessPiece.Type.ROOK, ChessPiece.Color.WHITE)
+	grid[0][0] = ChessPiece.new(ChessPiece.Type.ROOK, ChessPiece.PieceColor.BLACK)
+	grid[0][7] = ChessPiece.new(ChessPiece.Type.ROOK, ChessPiece.PieceColor.BLACK)
+	grid[7][0] = ChessPiece.new(ChessPiece.Type.ROOK, ChessPiece.PieceColor.WHITE)
+	grid[7][7] = ChessPiece.new(ChessPiece.Type.ROOK, ChessPiece.PieceColor.WHITE)
 	# Knights
-	grid[0][1] = ChessPiece.new(ChessPiece.Type.KNIGHT, ChessPiece.Color.BLACK)
-	grid[0][6] = ChessPiece.new(ChessPiece.Type.KNIGHT, ChessPiece.Color.BLACK)
-	grid[7][1] = ChessPiece.new(ChessPiece.Type.KNIGHT, ChessPiece.Color.WHITE)
-	grid[7][6] = ChessPiece.new(ChessPiece.Type.KNIGHT, ChessPiece.Color.WHITE)
+	grid[0][1] = ChessPiece.new(ChessPiece.Type.KNIGHT, ChessPiece.PieceColor.BLACK)
+	grid[0][6] = ChessPiece.new(ChessPiece.Type.KNIGHT, ChessPiece.PieceColor.BLACK)
+	grid[7][1] = ChessPiece.new(ChessPiece.Type.KNIGHT, ChessPiece.PieceColor.WHITE)
+	grid[7][6] = ChessPiece.new(ChessPiece.Type.KNIGHT, ChessPiece.PieceColor.WHITE)
 	# Bishops
-	grid[0][2] = ChessPiece.new(ChessPiece.Type.BISHOP, ChessPiece.Color.BLACK)
-	grid[0][5] = ChessPiece.new(ChessPiece.Type.BISHOP, ChessPiece.Color.BLACK)
-	grid[7][2] = ChessPiece.new(ChessPiece.Type.BISHOP, ChessPiece.Color.WHITE)
-	grid[7][5] = ChessPiece.new(ChessPiece.Type.BISHOP, ChessPiece.Color.WHITE)
+	grid[0][2] = ChessPiece.new(ChessPiece.Type.BISHOP, ChessPiece.PieceColor.BLACK)
+	grid[0][5] = ChessPiece.new(ChessPiece.Type.BISHOP, ChessPiece.PieceColor.BLACK)
+	grid[7][2] = ChessPiece.new(ChessPiece.Type.BISHOP, ChessPiece.PieceColor.WHITE)
+	grid[7][5] = ChessPiece.new(ChessPiece.Type.BISHOP, ChessPiece.PieceColor.WHITE)
 	# Queens
-	grid[0][3] = ChessPiece.new(ChessPiece.Type.QUEEN, ChessPiece.Color.BLACK)
-	grid[7][3] = ChessPiece.new(ChessPiece.Type.QUEEN, ChessPiece.Color.WHITE)
+	grid[0][3] = ChessPiece.new(ChessPiece.Type.QUEEN, ChessPiece.PieceColor.BLACK)
+	grid[7][3] = ChessPiece.new(ChessPiece.Type.QUEEN, ChessPiece.PieceColor.WHITE)
 	# Kings
-	grid[0][4] = ChessPiece.new(ChessPiece.Type.KING, ChessPiece.Color.BLACK)
-	grid[7][4] = ChessPiece.new(ChessPiece.Type.KING, ChessPiece.Color.WHITE)
+	grid[0][4] = ChessPiece.new(ChessPiece.Type.KING, ChessPiece.PieceColor.BLACK)
+	grid[7][4] = ChessPiece.new(ChessPiece.Type.KING, ChessPiece.PieceColor.WHITE)
 
 func get_piece(pos: Vector2i) -> ChessPiece:
 	if not _in_bounds(pos):
@@ -73,7 +73,7 @@ func duplicate() -> ChessBoard:
 	nb.white_to_move = white_to_move
 	return nb
 
-func find_king(color: ChessPiece.Color) -> Vector2i:
+func find_king(color: ChessPiece.PieceColor) -> Vector2i:
 	for y in range(8):
 		for x in range(8):
 			var p = grid[y][x]
@@ -100,7 +100,7 @@ func _piece_attacks_square(piece_pos: Vector2i, target: Vector2i) -> bool:
 
 	match piece.type:
 		ChessPiece.Type.PAWN:
-			var dir = -1 if piece.color == ChessPiece.Color.WHITE else 1
+			var dir = -1 if piece.color == ChessPiece.PieceColor.WHITE else 1
 			if dy == dir and abs(dx) == 1:
 				return true
 			return false
@@ -122,7 +122,7 @@ func _piece_attacks_square(piece_pos: Vector2i, target: Vector2i) -> bool:
 			return abs(dx) <=1 and abs(dy) <=1
 	return false
 
-func is_square_attacked(pos: Vector2i, by_color: ChessPiece.Color) -> bool:
+func is_square_attacked(pos: Vector2i, by_color: ChessPiece.PieceColor) -> bool:
 	for y in range(8):
 		for x in range(8):
 			var p = grid[y][x]
@@ -131,7 +131,7 @@ func is_square_attacked(pos: Vector2i, by_color: ChessPiece.Color) -> bool:
 					return true
 	return false
 
-func generate_pseudo_legal_moves(color: ChessPiece.Color) -> Array[ChessMove]:
+func generate_pseudo_legal_moves(color: ChessPiece.PieceColor) -> Array[ChessMove]:
 	var moves: Array[ChessMove] = []
 	for y in range(8):
 		for x in range(8):
@@ -149,8 +149,8 @@ func _gen_piece_moves(from: Vector2i, piece: ChessPiece) -> Array[ChessMove]:
 
 	match piece.type:
 		ChessPiece.Type.PAWN:
-			var dir = -1 if piece.color == ChessPiece.Color.WHITE else 1
-			var start_rank = 6 if piece.color == ChessPiece.Color.WHITE else 1
+			var dir = -1 if piece.color == ChessPiece.PieceColor.WHITE else 1
+			var start_rank = 6 if piece.color == ChessPiece.PieceColor.WHITE else 1
 
 			# forward 1
 			var one = Vector2i(x, y + dir)
@@ -253,8 +253,8 @@ func _gen_piece_moves(from: Vector2i, piece: ChessPiece) -> Array[ChessMove]:
 
 	return moves
 
-func _can_castle_kingside(color: ChessPiece.Color) -> bool:
-	var rank = 7 if color == ChessPiece.Color.WHITE else 0
+func _can_castle_kingside(color: ChessPiece.PieceColor) -> bool:
+	var rank = 7 if color == ChessPiece.PieceColor.WHITE else 0
 	var king_pos = Vector2i(4, rank)
 	var king = get_piece(king_pos)
 	if king == null or king.has_moved:
@@ -267,15 +267,15 @@ func _can_castle_kingside(color: ChessPiece.Color) -> bool:
 	if get_piece(Vector2i(5,rank)) != null or get_piece(Vector2i(6,rank)) != null:
 		return false
 	# king not in check, and intermediate squares not attacked
-	var opp = ChessPiece.Color.BLACK if color==ChessPiece.Color.WHITE else ChessPiece.Color.WHITE
+	var opp = ChessPiece.PieceColor.BLACK if color==ChessPiece.PieceColor.WHITE else ChessPiece.PieceColor.WHITE
 	if is_square_attacked(king_pos, opp):
 		return false
 	if is_square_attacked(Vector2i(5,rank), opp) or is_square_attacked(Vector2i(6,rank), opp):
 		return false
 	return true
 
-func _can_castle_queenside(color: ChessPiece.Color) -> bool:
-	var rank = 7 if color == ChessPiece.Color.WHITE else 0
+func _can_castle_queenside(color: ChessPiece.PieceColor) -> bool:
+	var rank = 7 if color == ChessPiece.PieceColor.WHITE else 0
 	var king_pos = Vector2i(4, rank)
 	var king = get_piece(king_pos)
 	if king == null or king.has_moved:
@@ -286,14 +286,14 @@ func _can_castle_queenside(color: ChessPiece.Color) -> bool:
 		return false
 	if get_piece(Vector2i(1,rank)) != null or get_piece(Vector2i(2,rank)) != null or get_piece(Vector2i(3,rank)) != null:
 		return false
-	var opp = ChessPiece.Color.BLACK if color==ChessPiece.Color.WHITE else ChessPiece.Color.WHITE
+	var opp = ChessPiece.PieceColor.BLACK if color==ChessPiece.PieceColor.WHITE else ChessPiece.PieceColor.WHITE
 	if is_square_attacked(king_pos, opp):
 		return false
 	if is_square_attacked(Vector2i(3,rank), opp) or is_square_attacked(Vector2i(2,rank), opp):
 		return false
 	return true
 
-func generate_legal_moves(color: ChessPiece.Color) -> Array[ChessMove]:
+func generate_legal_moves(color: ChessPiece.PieceColor) -> Array[ChessMove]:
 	var pseudo = generate_pseudo_legal_moves(color)
 	var legal: Array[ChessMove] = []
 	for m in pseudo:
@@ -302,7 +302,7 @@ func generate_legal_moves(color: ChessPiece.Color) -> Array[ChessMove]:
 		var king_pos = copy.find_king(color)
 		if king_pos.x == -1:
 			continue
-		var opp = ChessPiece.Color.BLACK if color==ChessPiece.Color.WHITE else ChessPiece.Color.WHITE
+		var opp = ChessPiece.PieceColor.BLACK if color==ChessPiece.PieceColor.WHITE else ChessPiece.PieceColor.WHITE
 		if not copy.is_square_attacked(king_pos, opp):
 			legal.append(m)
 	return legal
@@ -314,7 +314,7 @@ func apply_move(move: ChessMove):
 
 	# handle en passant capture
 	if move.is_en_passant:
-		var dir = -1 if piece.color == ChessPiece.Color.WHITE else 1
+		var dir = -1 if piece.color == ChessPiece.PieceColor.WHITE else 1
 		# Actually en passant target is the square moved to, captured pawn is behind
 		var captured_pos = Vector2i(move.to.x, move.to.y - dir)
 		set_piece(captured_pos, null)
@@ -357,7 +357,7 @@ func apply_move(move: ChessMove):
 	if piece.type == ChessPiece.Type.PAWN and abs(move.to.y - move.from.y) == 2:
 		en_passant_target = Vector2i(move.from.x, (move.from.y + move.to.y)/2)
 
-func evaluate(color: ChessPiece.Color) -> int:
+func evaluate(color: ChessPiece.PieceColor) -> int:
 	var score = 0
 	for y in range(8):
 		for x in range(8):
@@ -367,30 +367,30 @@ func evaluate(color: ChessPiece.Color) -> int:
 			var val = p.get_material_value()
 			# small positional bonus for pawns advancing
 			if p.type == ChessPiece.Type.PAWN:
-				var bonus = (7 - y) if p.color == ChessPiece.Color.WHITE else y
+				var bonus = (7 - y) if p.color == ChessPiece.PieceColor.WHITE else y
 				val += bonus * 5
-			if p.color == ChessPiece.Color.WHITE:
+			if p.color == ChessPiece.PieceColor.WHITE:
 				score += val
 			else:
 				score -= val
-	if color == ChessPiece.Color.WHITE:
+	if color == ChessPiece.PieceColor.WHITE:
 		return score
 	else:
 		return -score
 
-func is_check(color: ChessPiece.Color) -> bool:
+func is_check(color: ChessPiece.PieceColor) -> bool:
 	var kpos = find_king(color)
 	if kpos.x == -1:
 		return false
-	var opp = ChessPiece.Color.BLACK if color==ChessPiece.Color.WHITE else ChessPiece.Color.WHITE
+	var opp = ChessPiece.PieceColor.BLACK if color==ChessPiece.PieceColor.WHITE else ChessPiece.PieceColor.WHITE
 	return is_square_attacked(kpos, opp)
 
-func is_checkmate(color: ChessPiece.Color) -> bool:
+func is_checkmate(color: ChessPiece.PieceColor) -> bool:
 	if not is_check(color):
 		return false
 	return generate_legal_moves(color).size() == 0
 
-func is_stalemate(color: ChessPiece.Color) -> bool:
+func is_stalemate(color: ChessPiece.PieceColor) -> bool:
 	if is_check(color):
 		return false
 	return generate_legal_moves(color).size() == 0
