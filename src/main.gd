@@ -43,8 +43,10 @@ func _setup_board_ui():
 			btn.size = Vector2(tile_size, tile_size)
 			btn.position = tile.position
 			btn.flat = true
+			btn.name = "TileBtn_%d_%d" % [x, y]
+			# Use bind() to avoid closure capture bug in Godot 4 that made all buttons point to (7,7)
 			var pos = Vector2i(x,y)
-			btn.pressed.connect(func(): _on_tile_pressed(pos))
+			btn.pressed.connect(_on_tile_pressed.bind(pos))
 			board_container.add_child(btn)
 			row_buttons.append(btn)
 
@@ -135,9 +137,18 @@ func _on_tile_pressed(pos: Vector2i):
 			_refresh_board_visuals()
 			_update_status()
 		else:
-			# invalid
+			# invalid — was previously freezing UX because selection stayed stuck with no refresh
+			var from_before = selected_pos
+			print("Invalid move attempted from %s to %s" % [from_before, pos])
+			# Clear selection so board doesn't feel frozen - user can pick new piece immediately
+			selected_pos = Vector2i(-1,-1)
+			legal_moves_for_selected = []
+			_refresh_board_visuals()
 			if status_label:
-				status_label.text = "Invalid move!"
+				status_label.text = "Invalid move! %s -> %s not legal. Pick another piece." % [from_before, pos]
+				# Restore normal status after 1.5s so it doesn't stay stuck
+				# Use timer without blocking input
+				get_tree().create_timer(1.5).timeout.connect(func(): _update_status())
 
 func _update_status():
 	if board == null:
